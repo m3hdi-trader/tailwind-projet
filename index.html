@@ -34,7 +34,7 @@
                   <a href="#">صفحه اصلی</a>
                 </li>
                 <!-- X-Data Dropdown -->
-                <div x-data="dropdown">
+                <div x-data="dropdown" @click.outside="open=false">
                   <li
                     class="nav-item"
                     :class="{'nav-item-active':open}"
@@ -397,6 +397,52 @@
     </section>
     <!-- endPricing -->
 
+    <!-- gallery -->
+    <section class="mt-24">
+      <div class="container mx-auto py-4 px-10 lg:px-20 lg:w-4/5">
+        <div class="text-center mb-12">
+          <h1 class="text-2xl font-bold mb-5 dark:text-white">
+            لورم ایپسوم <span class="text-indigo-600">متن ساختگی</span>
+          </h1>
+
+          <p class="text-gray-700 leading-8 mb-6 dark:text-white">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+            استفاده از طراحان گرافیک است.
+          </p>
+        </div>
+
+        <div x-data="tabs">
+          <ul class="flex justify-center">
+            <!-- <li class="px-4 py-2 cursor-pointer border-b-4 border-indigo-600">
+              طبیعت
+            </li>
+            <li class="px-4 py-2 cursor-pointer">تکنولوژی</li>
+            <li class="px-4 py-2 cursor-pointer">مسافرت</li>
+            <li class="px-4 py-2 cursor-pointer">همه</li> -->
+            <template x-for="(tab,index) in tabs" :key="index">
+              <li
+                x-text="tab.display_category"
+                @click="tabName=tab.category"
+                class="px-4 py-2 cursor-pointer"
+                :class="tabName==tab.category && 'border-b-4 border-indigo-600'"
+              ></li>
+            </template>
+          </ul>
+          <template x-for="(tab,index) in tabs" :key="index">
+            <div
+              x-show="tab.category == tabName "
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5"
+            >
+              <template x-for="(image,index) in tab.images" :key="index">
+                <div><img class="rounded-lg" :src="image" alt="" /></div>
+              </template>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+    <!-- end Gallery -->
+
     <script>
       document.addEventListener("alpine:init", () => {
         // DropDown
@@ -447,6 +493,61 @@
               this.darkMode = false;
               this.nextMode = "dark";
             },
+          })),
+          // Data Tabs
+          Alpine.data("tabs", () => ({
+            tabName: "nature",
+
+            tabs: [
+              {
+                category: "nature",
+                display_category: "طبیعت",
+                images: [
+                  "./dist/images/nature/img_1.jpg",
+                  "./dist/images/nature/img_2.jpg",
+                  "./dist/images/nature/img_3.jpg",
+                  "./dist/images/nature/img_4.jpg",
+                ],
+              },
+              {
+                category: "technology",
+                display_category: "تکنولوژی",
+                images: [
+                  "./dist/images/technology/img_1.jpg",
+                  "./dist/images/technology/img_2.jpg",
+                  "./dist/images/technology/img_3.jpg",
+                  "./dist/images/technology/img_4.jpg",
+                ],
+              },
+              {
+                category: "travel",
+                display_category: "مسافرت",
+                images: [
+                  "./dist/images/travel/img_1.jpg",
+                  "./dist/images/travel/img_2.jpg",
+                  "./dist/images/travel/img_3.jpg",
+                  "./dist/images/travel/img_4.jpg",
+                ],
+              },
+              {
+                category: "all",
+                display_category: "همه",
+                images: [
+                  "./dist/images/nature/img_1.jpg",
+                  "./dist/images/nature/img_2.jpg",
+                  "./dist/images/nature/img_3.jpg",
+                  "./dist/images/nature/img_4.jpg",
+                  "./dist/images/technology/img_1.jpg",
+                  "./dist/images/technology/img_2.jpg",
+                  "./dist/images/technology/img_3.jpg",
+                  "./dist/images/technology/img_4.jpg",
+                  "./dist/images/travel/img_1.jpg",
+                  "./dist/images/travel/img_2.jpg",
+                  "./dist/images/travel/img_3.jpg",
+                  "./dist/images/travel/img_4.jpg",
+                ],
+              },
+            ],
           }));
       });
     </script>
