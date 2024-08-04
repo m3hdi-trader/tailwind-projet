@@ -18,11 +18,12 @@
     <link href="./dist/output.css" rel="stylesheet" />
   </head>
   <body class="font-vazir dark:bg-gray-900">
+    <!-- Header -->
     <header class="shadow-lg">
       <div class="container mx-auto py-4 px-10">
         <nav class="relative flex justify-between items-center">
           <!-- desktop nav -->
-          <div class="hidden md:flex items-center">
+          <div class="hidden lg:flex items-center">
             <div>
               <button class="btn btn-primary">عضویت</button>
               <button class="btn btn-secondary mr-2">ورود</button>
@@ -73,7 +74,7 @@
             </div>
           </div>
           <!-- mobile nav -->
-          <div class="md:hidden" x-data="dropdown">
+          <div class="lg:hidden" x-data="dropdown">
             <div @click="toggle">
               <i class="fas fa-bars text-xl dark:text-white"></i>
             </div>
@@ -171,6 +172,32 @@
         </nav>
       </div>
     </header>
+
+    <!-- intro -->
+    <section>
+      <div class="container mx-auto py-4 px-10 lg:px-20">
+        <div class="flex items-center flex-col lg:flex-row gap-x-24">
+          <div class="mt-8 lg:mt-0">
+            <h1 class="text-2xl font-bold mb-5 dark:text-white">
+              لورم ایپسوم <span class="text-indigo-600">متن ساختگی</span>
+            </h1>
+
+            <p
+              class="text-gray-700 text-justify leading-8 mb-6 dark:text-white"
+            >
+              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
+              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+            </p>
+
+            <button class="btn btn-primary">لورم ایپسوم متن</button>
+            <button class="btn btn-secondary mr-4">لورم ایپسوم</button>
+          </div>
+          <img src="./dist/images/img_1.png" alt="" />
+        </div>
+      </div>
+    </section>
 
     <script>
       document.addEventListener("alpine:init", () => {
