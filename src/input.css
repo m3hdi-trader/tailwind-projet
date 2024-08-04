@@ -42,3 +42,14 @@
 
     [x-cloak] { display: none !important; }
 }
+
+@layer utilities{
+    .fill-gray-100{
+        fill: #f3f4f6;
+    }
+    .fill-gray-800{
+        fill: #1f2937;
+    }
+
+    
+}
