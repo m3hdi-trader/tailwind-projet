@@ -29,7 +29,7 @@
     }
 
     .btn-secondary{
-        @apply text-black   bg-gray-100  hover:bg-indigo-600 hover:text-white dark:text-black dark:hover:text-white
+        @apply text-black   bg-gray-100   hover:bg-indigo-600 hover:text-white dark:text-black dark:hover:text-white
     }
 
     .nav-item{
