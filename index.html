@@ -611,7 +611,12 @@
             nextMode: "",
 
             init() {
-              this.nextMode = localStorage.nextThemeMode;
+              if ("nextThemeMode" in localStorage) {
+                this.nextMode = localStorage.nextThemeMode;
+              } else {
+                this.nextMode = "dark";
+              }
+
               if (localStorage.theme === "dark") {
                 this.darkMode = true;
               } else {
